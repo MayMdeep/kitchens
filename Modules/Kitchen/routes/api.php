@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Kitchen\Http\Controllers\KitchenController;
+// kitchens
+use Modules\Kitchen\App\Actions\Kitchens\GetKitchenAction;
+use Modules\Kitchen\App\Actions\Kitchens\StoreKitchenAction;
+use Modules\Kitchen\App\Actions\Kitchens\DeleteKitchenAction;
+use Modules\Kitchen\App\Actions\Kitchens\UpdateKitchenAction;
+use Modules\Kitchen\App\Actions\Kitchens\GetKitchenListAction;
+
+// kitchens
+
 
 /*
  *--------------------------------------------------------------------------
@@ -12,8 +20,18 @@ use Modules\Kitchen\Http\Controllers\KitchenController;
  * routes are loaded by the RouteServiceProvider within a group which
  * is assigned the "api" middleware group. Enjoy building your API!
  *
-*/
+ */
+Route::prefix('api')->group(function () {
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->group(function () {
-    Route::apiResource('kitchen', KitchenController::class)->names('kitchen');
-});
+    Route::prefix('kitchenmodule')->group(function () {
+
+        Route::group(['prefix' => 'kitchens'], function () {
+            Route::get('', GetKitchenListAction::class);
+            Route::get('{id}', GetKitchenAction::class);
+            Route::put('', StoreKitchenAction::class);
+            Route::post('{id}', UpdateKitchenAction::class);
+            Route::delete('{id}', DeleteKitchenAction::class);
+        });
+
+    });//kitchenmodule  close
+}); // apis close
