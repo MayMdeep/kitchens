@@ -16,6 +16,17 @@ use App\Actions\Permissions\AssignOnePermissionToRoleAction;
 use App\Actions\Permissions\GetPermissionListAction;
 use App\Actions\Permissions\StorePermissionAction;
 
+// auth
+use App\Actions\Auth\User\UserLoginAction;
+use App\Actions\Auth\User\UserRegisterAction;
+
+
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('', UserLoginAction::class);
+    Route::put('', UserRegisterAction::class);
+
+});
 
 Route::group(['prefix'=>'permissions'], function(){
     Route::post('assign', AssignPermissionToRoleAction::class);
