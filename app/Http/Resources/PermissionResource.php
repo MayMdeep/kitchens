@@ -2,11 +2,8 @@
 
 namespace App\Http\Resources;
 
-use App\Actions\Translations\GetModelTranslationsAction;
-use App\Actions\Translations\GetModelDetailedTranslationsAction;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
-use App\Implementations\RoleImplementation ;
 
 class PermissionResource extends JsonResource
 {
