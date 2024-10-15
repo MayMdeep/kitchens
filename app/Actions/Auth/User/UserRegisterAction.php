@@ -29,7 +29,8 @@ class UserRegisterAction
             'name' => ['required', 'unique:users,name'],
             'email' => ['required', 'unique:users,email'],
             'password' => ['required','min:8'],
-            'role_id' => ['required'],
+            'role_id' => ['required' ,'exists:roles,id'],
+            'kitchen_id' => ['required','exists:kitchens,id'],
         ];
     }
     public function withValidator(Validator $validator, ActionRequest $request)

@@ -40,6 +40,9 @@ class UserImplementation implements Model
         if (array_key_exists('role_id', $data)) {
             $query = $query->where('role_id', $data['role_id']);
         }
+        if (array_key_exists('kitchen_id', $data)) {
+            $query = $query->where('kitchen_id', $data['kitchen_id']);
+        }
 
         if (array_key_exists('name', $data)) {
             $query = $query->where('name', $data['name']);
@@ -117,8 +120,8 @@ class UserImplementation implements Model
             ,'name'
             ,'email'
             ,'role_id'
+            ,'kitchen_id'
 			,'password'
-		
         ];
 
         foreach ($attribute as $val) {
