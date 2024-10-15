@@ -6,10 +6,8 @@ use Lorisleiva\Actions\ActionRequest;
 use Illuminate\Validation\Validator;
 use Illuminate\Http\Request;
 use App\Traits\Response;
-use App\Models\Permission;
 use App\Implementations\PermissionImplementation;
 use App\Implementations\RoleImplementation;
-use App\Http\Resources\PermissionResource;
 
 use Hash;
 class AssignOnePermissionToRoleAction

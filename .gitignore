@@ -1,23 +1,49 @@
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+# Ignore vendor and other dependencies  
+/vendor/  
+/stubs/
+/node_modules/  
+/npm-debug.log  
+/yarn-error.log  
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# Ignore compiled files  
+/public/storage  
+/public/hot  
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
+# Ignore environment configuration files  
+/.env  
+/.env.local  
+/.env.*.local  
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+# Ignore IDE/Editor specific files  
+/.vagrant  
+/.idea/  
+/*.sublime-project  
+/*.sublime-workspace  
 
-storage/*.key
-.env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
+# Ignore cache and log files  
+/storage/*.key  
+/storage/logs/*  
+/storage/framework/cache/*  
+/storage/framework/sessions/*  
+/storage/framework/views/*  
+/storage/app/*  
+/storage/app/public/*  
+
+# Ignore compiled classes and files  
+/bootstrap/compiled.php  
+/public/compiled.php  
+
+# Ignore PHPUnit result cache  
+.phpunit.result.cache  
+
+# Ignore Homestead files  
+Homestead.yaml  
+Homestead.json  
+
+# Ignore Docker files (if applicable)  
+/docker-compose.yml  
+/docker-compose.override.yml  
+
+# Ignore other specific files  
+/.vscode  
+/.phpunit.result.cache

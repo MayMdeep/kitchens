@@ -1,0 +1,11 @@
+{
+    "name": "Kitchen",
+    "alias": "kitchen",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Kitchen\\Providers\\KitchenServiceProvider"
+    ],
+    "files": []
+}
