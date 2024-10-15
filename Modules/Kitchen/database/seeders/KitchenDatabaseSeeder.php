@@ -11,6 +11,7 @@ class KitchenDatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call([]);
+        $this->call(KitchenSeeder::class);
+        $this->call(LocationSeeder::class);
     }
 }
