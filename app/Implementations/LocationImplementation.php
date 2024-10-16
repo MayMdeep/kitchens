@@ -3,19 +3,19 @@
 namespace App\Implementations;
 
 use App\Interfaces\Model;
-use App\Models\Role;
+use Modules\Kitchen\App\Models\Location;
 
 class LocationImplementation implements Model
 {
-    private $role;
+    private $location;
 
     function __construct()
     {
-        $this->role = new Role();
+        $this->location = new Location();
     }
     public function resolveCriteria($data = [])
     {
-        $query = Role::Query();
+        $query = Location::Query();
 
         if (array_key_exists('columns', $data)) {
             $query = $query->select($data['columns']);
@@ -55,8 +55,8 @@ class LocationImplementation implements Model
 
     public function getOne($id)
     {
-        $role = Role::findOrFail($id);
-        return $role;
+        $location = Location::findOrFail($id);
+        return $location;
     }
     public function getList($data)
     {
@@ -73,20 +73,20 @@ class LocationImplementation implements Model
 
         $this->mapDataModel($data);
 
-        $this->role->save();
+        $this->location->save();
 
-        return $this->role;
+        return $this->location;
 
     }
     public function Update($data = [], $id)
     {
-        $this->role = $this->getOne($id);
+        $this->location = $this->getOne($id);
 
         $this->mapDataModel($data);
 
-        $this->role->save();
+        $this->location->save();
 
-        return $this->role;
+        return $this->location;
     }
     public function Delete($id)
     {
@@ -115,7 +115,7 @@ class LocationImplementation implements Model
         ];
         foreach ($attribute as $val) {
             if (array_key_exists($val, $data)) {
-                $this->role->$val = $data[$val];
+                $this->location->$val = $data[$val];
             }
         }
     }

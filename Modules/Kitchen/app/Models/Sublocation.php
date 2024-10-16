@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Kitchen\Models;
+namespace Modules\Kitchen\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

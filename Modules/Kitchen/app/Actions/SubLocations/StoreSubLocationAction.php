@@ -31,10 +31,9 @@ class StoreSubLocationAction
     public function rules()
     {
         return [
-            'name' => ['required','unique:subLocations,name'],
-            'kitchen_id' => ['required','exists:kitchens,id'],
+            'name' => ['required','unique:sublocations,name'],
+            'location_id' => ['required','exists:locations,id'],
             'status' => ['required'],
-            'qr_code' => ['required'],
         ];
     }
     public function withValidator(Validator $validator, ActionRequest $request)

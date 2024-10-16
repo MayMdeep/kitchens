@@ -3,7 +3,7 @@
 namespace App\Implementations;
 
 use App\Interfaces\Model;
-use App\Models\Role;
+use Modules\Kitchen\App\Models\Sublocation;
 
 class SublocationImplementation implements Model
 {
@@ -11,11 +11,11 @@ class SublocationImplementation implements Model
 
     function __construct()
     {
-        $this->role = new Role();
+        $this->role = new Sublocation();
     }
     public function resolveCriteria($data = [])
     {
-        $query = Role::Query();
+        $query = Sublocation::Query();
 
         if (array_key_exists('columns', $data)) {
             $query = $query->select($data['columns']);
@@ -52,7 +52,7 @@ class SublocationImplementation implements Model
 
     public function getOne($id)
     {
-        $role = Role::findOrFail($id);
+        $role = Sublocation::findOrFail($id);
         return $role;
     }
     public function getList($data)
