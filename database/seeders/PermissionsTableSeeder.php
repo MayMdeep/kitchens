@@ -43,7 +43,19 @@ class PermissionsTableSeeder extends Seeder
         [ 'name' => 'location.get'],
         [ 'name' => 'location.get-all'],
         [ 'name' => 'location.delete'],
-        [ 'name' => 'location.edit']
+        [ 'name' => 'location.edit'],
+
+        [ 'name' => 'product.add'],
+        [ 'name' => 'product.get'],
+        [ 'name' => 'product.get-all'],
+        [ 'name' => 'product.delete'],
+        [ 'name' => 'product.edit'],
+
+        [ 'name' => 'subLocation.add'],
+        [ 'name' => 'subLocation.get'],
+        [ 'name' => 'subLocation.get-all'],
+        [ 'name' => 'subLocation.delete'],
+        [ 'name' => 'subLocation.edit']
 
 
     ]);

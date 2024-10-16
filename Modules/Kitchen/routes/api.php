@@ -7,9 +7,20 @@ use Modules\Kitchen\App\Actions\Kitchens\StoreKitchenAction;
 use Modules\Kitchen\App\Actions\Kitchens\DeleteKitchenAction;
 use Modules\Kitchen\App\Actions\Kitchens\UpdateKitchenAction;
 use Modules\Kitchen\App\Actions\Kitchens\GetKitchenListAction;
+//locations
+use Modules\Kitchen\App\Actions\Locations\GetLocationListAction;
+use Modules\Kitchen\App\Actions\Locations\GetLocationAction;
+use Modules\Kitchen\App\Actions\Locations\StoreLocationAction;
+use Modules\Kitchen\App\Actions\Locations\UpdateLocationAction;
+use Modules\Kitchen\App\Actions\Locations\DeleteLocationAction;
 
-// kitchens
-
+//sublocations
+use Modules\Kitchen\App\Actions\SubLocations\GetSubLocationListAction;
+use Modules\Kitchen\App\Actions\SubLocations\GetSubLocationAction;
+use Modules\Kitchen\App\Actions\SubLocations\StoreSubLocationAction;
+use Modules\Kitchen\App\Actions\SubLocations\UpdateSubLocationAction;
+use Modules\Kitchen\App\Actions\SubLocations\DeleteSubLocationAction;
+//
 
 /*
  *--------------------------------------------------------------------------
@@ -31,6 +42,20 @@ Route::prefix('api')->group(function () {
             Route::put('', StoreKitchenAction::class);
             Route::post('{id}', UpdateKitchenAction::class);
             Route::delete('{id}', DeleteKitchenAction::class);
+        });
+        Route::group(['prefix' => 'locations'], function () {
+            Route::get('', GetLocationListAction::class);
+            Route::get('{id}', GetLocationAction::class);
+            Route::put('', StoreLocationAction::class);
+            Route::post('{id}', UpdateLocationAction::class);
+            Route::delete('{id}', DeleteLocationAction::class);
+        });
+        Route::group(['prefix' => 'sublocations'], function () {
+            Route::get('', GetSubLocationListAction::class);
+            Route::get('{id}', GetSubLocationAction::class);
+            Route::put('', StoreSubLocationAction::class);
+            Route::post('{id}', UpdateSubLocationAction::class);
+            Route::delete('{id}', DeleteSubLocationAction::class);
         });
 
     });//kitchenmodule  close

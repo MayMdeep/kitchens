@@ -5,7 +5,7 @@ namespace App\Implementations;
 use App\Interfaces\Model;
 use App\Models\Role;
 
-class LocationImplementation implements Model
+class SublocationImplementation implements Model
 {
     private $role;
 
@@ -33,11 +33,8 @@ class LocationImplementation implements Model
         if (array_key_exists('status', $data)) {
             $query = $query->where('status', $data['status']);
         }
-        if (array_key_exists('qr_code', $data)) {
-            $query = $query->where('qr_code', $data['qr_code']);
-        }
-        if (array_key_exists('kitchen_id', $data)) {
-            $query = $query->where('kitchen_id', $data['kitchen_id']);
+        if (array_key_exists('location_id', $data)) {
+            $query = $query->where('location_id', $data['location_id']);
         }
         if (array_key_exists('id', $data)) {
             $query = $query->where('id', $data['id']);
@@ -99,10 +96,9 @@ class LocationImplementation implements Model
     {
         $attribute = [
             'id',
-            'kitchen_id',
+            'location_id',
             'name',
             'status',
-            'qr_code',
             'created_at',
             'created_at',
             'updated_at',

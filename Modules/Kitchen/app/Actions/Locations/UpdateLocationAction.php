@@ -1,14 +1,14 @@
 <?php
-namespace Modules\Location\App\Actions\Locations;
+namespace Modules\Kitchen\App\Actions\Locations;
 
 use Hash;
 use App\Traits\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use Lorisleiva\Actions\ActionRequest;
+use App\Http\Resources\LocationResource;
 use Lorisleiva\Actions\Concerns\AsAction;
-use Modules\Location\App\Http\Resources\LocationResource;
-use Modules\Location\App\Implementations\LocationImplementation;
+use App\Implementations\LocationImplementation;
 
 class UpdateLocationAction
 {
@@ -30,6 +30,7 @@ class UpdateLocationAction
     {
         return [
             'name' => ['unique:locations,name,'.$request->route('id')],
+            'qr_code' => ['unique:locations,qr_code,'.$request->route('id')],
         ];
     }
     public function withValidator(Validator $validator, ActionRequest $request)

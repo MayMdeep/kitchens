@@ -1,27 +1,27 @@
 <?php
-namespace Modules\Kitchen\App\Actions\Locations;
+namespace Modules\Kitchen\App\Actions\SubLocations;
 
 use Hash;
 use App\Traits\Response;
 use Illuminate\Validation\Validator;
 use Lorisleiva\Actions\ActionRequest;
 use Lorisleiva\Actions\Concerns\AsAction;
-use App\Implementations\LocationImplementation;
+use App\Implementations\SubLocationImplementation;
 
-class DeleteLocationAction
+class DeleteSubLocationAction
 {
     use AsAction;
     use Response;
-    private $location;
+    private $subLocation;
     
-    function __construct(LocationImplementation $locationImplementation)
+    function __construct(SubLocationImplementation $subLocationImplementation)
     {
-        $this->location = $locationImplementation;
+        $this->subLocation = $subLocationImplementation;
     }
 
     public function handle(int $id)
     {
-        return $this->location->delete($id);
+        return $this->subLocation->delete($id);
     }
     public function rules()
     {
@@ -35,10 +35,10 @@ class DeleteLocationAction
     {
         try{
     
-            if(auth('sanctum')->check() &&  !auth('sanctum')->user()->has_permission('location.delete'))
+            if(auth('sanctum')->check() &&  !auth('sanctum')->user()->has_permission('subLocation.delete'))
             return $this->sendError('Forbidden',[],403);
             $this->handle($id);
-            return $this->sendResponse(['Success'], 'location Deleted successfully.');
+            return $this->sendResponse(['Success'], 'subLocation Deleted successfully.');
         
 		}catch (\Exception $e) {
             return $this->sendError($e->getMessage());

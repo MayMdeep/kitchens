@@ -1,17 +1,14 @@
 <?php
-namespace Modules\Location\App\Actions\Locations;
+namespace Modules\Kitchen\App\Actions\Locations;
 
 use Hash;
-use App\Models\Location;
 use App\Traits\Response;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
 use Lorisleiva\Actions\ActionRequest;
+use App\Http\Resources\LocationResource;
 use Lorisleiva\Actions\Concerns\AsAction;
-
-
-use Modules\Location\App\Http\Resources\LocationResource;
-use Modules\Location\App\Implementations\LocationImplementation;
+use App\Implementations\LocationImplementation;
 
 class StoreLocationAction
 {
@@ -29,12 +26,15 @@ class StoreLocationAction
 
         $location = $this->location->create($data);
 
-        return new locationResource($location);
+        return new LocationResource($location);
     }
     public function rules()
     {
         return [
             'name' => ['required','unique:locations,name'],
+            'kitchen_id' => ['required','exists:kitchens,id'],
+            'status' => ['required'],
+            'qr_code' => ['required'],
         ];
     }
     public function withValidator(Validator $validator, ActionRequest $request)
