@@ -2,8 +2,7 @@
 
 namespace Modules\Kitchen\App\Http\Resources;
 
-use App\Actions\Translations\GetModelTranslationsAction;
-use App\Actions\Translations\GetModelDetailedTranslationsAction;
+use App\Http\Resources\LocationResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -19,6 +18,7 @@ class KitchenResource extends JsonResource
         $result = [
             'id' => (int)$this->id,
             'name' => (string)$this->name,
+            'products' => LocationResource::collection($this->locations) ,
             'created_at' => $this->created_at,
             //'updated_at' => $this->updated_at,
         ];

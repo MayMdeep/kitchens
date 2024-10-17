@@ -41,7 +41,7 @@ class KitchenImplementation implements Model
         }else {
             $query = $query->orderBy('id', 'DESC');
         }
-
+        $query->with('locations');
         return $query;
 
     }

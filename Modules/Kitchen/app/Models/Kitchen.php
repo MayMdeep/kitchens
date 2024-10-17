@@ -13,8 +13,9 @@ class Kitchen extends Model
     protected $connection="mysql";
     protected $table = "kitchens";
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [];
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
+    }
 }
