@@ -13,5 +13,7 @@ class KitchenDatabaseSeeder extends Seeder
     {
         $this->call(KitchenSeeder::class);
         $this->call(LocationSeeder::class);
+        $this->call(ProductsTableSeeder::class);
+        $this->call(SublocationsTableSeeder::class);
     }
 }

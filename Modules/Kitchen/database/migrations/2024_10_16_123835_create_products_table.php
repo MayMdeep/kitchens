@@ -17,11 +17,11 @@ return new class extends Migration
             $table->text('ingredients');  
             $table->date('production_date');  
             $table->date('expiry_date')->nullable();  
-            $table->foreignId('location_id')->constrained()->onDelete('cascade');  
-            $table->foreignId('sub_location_id')->nullable()->constrained()->onDelete('set null');  
+            $table->foreignId('location_id');  
+            $table->foreignId('sub_location_id')->nullable();  
             $table->integer('quantity');  
             $table->integer('alert_quantity')->nullable();  
-            $table->string('qr_code')->unique();  
+            $table->text('qr_code')->unique();  
             $table->enum('status', ['Active', 'Inactive']);  
             $table->timestamps();  
             $table->softDeletes();

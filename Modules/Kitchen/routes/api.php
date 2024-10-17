@@ -13,6 +13,12 @@ use Modules\Kitchen\App\Actions\Locations\GetLocationAction;
 use Modules\Kitchen\App\Actions\Locations\StoreLocationAction;
 use Modules\Kitchen\App\Actions\Locations\UpdateLocationAction;
 use Modules\Kitchen\App\Actions\Locations\DeleteLocationAction;
+//ProductTransaction
+use Modules\Kitchen\App\Actions\ProductTransactions\GetProductTransactionListAction;
+use Modules\Kitchen\App\Actions\ProductTransactions\GetProductTransactionAction;
+use Modules\Kitchen\App\Actions\ProductTransactions\StoreProductTransactionAction;
+use Modules\Kitchen\App\Actions\ProductTransactions\UpdateProductTransactionAction;
+use Modules\Kitchen\App\Actions\ProductTransactions\DeleteProductTransactionAction;
 //products
 use Modules\Kitchen\App\Actions\Products\GetProductListAction;
 use Modules\Kitchen\App\Actions\Products\GetProductAction;
@@ -59,13 +65,13 @@ Route::prefix('api')->group(function () {
             Route::post('{id}', UpdateLocationAction::class);
             Route::delete('{id}', DeleteLocationAction::class);
         });
-        
-        Route::group(['prefix' => 'locations'], function () {
-            Route::get('', GetLocationListAction::class);
-            Route::get('{id}', GetLocationAction::class);
-            Route::put('', StoreLocationAction::class);
-            Route::post('{id}', UpdateLocationAction::class);
-            Route::delete('{id}', DeleteLocationAction::class);
+
+        Route::group(['prefix' => 'product-tra'], function () {
+            Route::get('', GetProductTransactionListAction::class);
+            Route::get('{id}', GetProductTransactionAction::class);
+            Route::put('', StoreProductTransactionAction::class);
+            Route::post('{id}', UpdateProductTransactionAction::class);
+            Route::delete('{id}', DeleteProductTransactionAction::class);
         });
         Route::group(['prefix' => 'products'], function () {
             Route::get('', GetProductListAction::class);

@@ -28,6 +28,8 @@ class StoreProductTransactionAction
      */
     public function handle(array $data)
     {
+        $data['user_id']=1;
+
         $productTransaction = $this->productTransaction->Create($data);
         // Update the product quantity based on the transaction type
         // It should br a asepereate action or a queue worker but i dont have time

@@ -13,14 +13,17 @@ return new class extends Migration {
         Schema::create('product_transactions', function (Blueprint $table) {
             $table->id();
             $table->enum('transaction_type', ['withdrawal', 'return']);
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->foreignId('location_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // The user performing the action
+            $table->foreignId('product_id');
+            $table->foreignId('location_id');
+            $table->foreignId('user_id'); // The user performing the action
             $table->integer('quantity'); // Quantity withdrawn or returned
             $table->text('notes')->nullable(); // Optional notes for return transactions
             $table->timestamps();
         });
     }
+    //->constrained()->onDelete('cascade');
+// ->constrained()->onDelete('cascade');
+// ->constrained()->onDelete('cascade');
 
     /**
      * Reverse the migrations.
