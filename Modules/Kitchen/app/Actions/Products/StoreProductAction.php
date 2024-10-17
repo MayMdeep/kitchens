@@ -34,7 +34,7 @@ class StoreProductAction
             'name' => ['required','unique:products,name'],
             'location_id' => ['required','exists:locations,id'],
             'sub_location_id' => ['required','exists:sublocations,id'],
-            'quantity' => ['required'],
+            'quantity' => ['required','integer' ,'min:1'],
             'expiry_date' => ['required'],
             'production_date' => ['required'],
             'status' => ['required'],

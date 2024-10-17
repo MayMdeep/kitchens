@@ -13,6 +13,14 @@ use Modules\Kitchen\App\Actions\Locations\GetLocationAction;
 use Modules\Kitchen\App\Actions\Locations\StoreLocationAction;
 use Modules\Kitchen\App\Actions\Locations\UpdateLocationAction;
 use Modules\Kitchen\App\Actions\Locations\DeleteLocationAction;
+//products
+use Modules\Kitchen\App\Actions\Products\GetProductListAction;
+use Modules\Kitchen\App\Actions\Products\GetProductAction;
+use Modules\Kitchen\App\Actions\Products\StoreProductAction;
+use Modules\Kitchen\App\Actions\Products\UpdateProductAction;
+use Modules\Kitchen\App\Actions\Products\DeleteProductAction;
+use Modules\Kitchen\App\Actions\Products\WithdrawProductAction;
+
 
 //sublocations
 use Modules\Kitchen\App\Actions\SubLocations\GetSubLocationListAction;
@@ -20,6 +28,7 @@ use Modules\Kitchen\App\Actions\SubLocations\GetSubLocationAction;
 use Modules\Kitchen\App\Actions\SubLocations\StoreSubLocationAction;
 use Modules\Kitchen\App\Actions\SubLocations\UpdateSubLocationAction;
 use Modules\Kitchen\App\Actions\SubLocations\DeleteSubLocationAction;
+use Modules\Kitchen\App\Actions\Products\GetProductActionByQR;
 //
 
 /*
@@ -49,6 +58,28 @@ Route::prefix('api')->group(function () {
             Route::put('', StoreLocationAction::class);
             Route::post('{id}', UpdateLocationAction::class);
             Route::delete('{id}', DeleteLocationAction::class);
+        });
+        
+        Route::group(['prefix' => 'locations'], function () {
+            Route::get('', GetLocationListAction::class);
+            Route::get('{id}', GetLocationAction::class);
+            Route::put('', StoreLocationAction::class);
+            Route::post('{id}', UpdateLocationAction::class);
+            Route::delete('{id}', DeleteLocationAction::class);
+        });
+        Route::group(['prefix' => 'products'], function () {
+            Route::get('', GetProductListAction::class);
+            Route::get('{id}', GetProductAction::class);
+
+            //extra since I didn't set the identifier to qrcode
+            // since it's a very long attribute 64based i set the route to post
+            Route::post('', GetProductActionByQR::class);
+
+            Route::put('', StoreProductAction::class);
+            Route::post('{id}', UpdateProductAction::class);
+            Route::delete('{id}', DeleteProductAction::class);
+            //
+
         });
         Route::group(['prefix' => 'sublocations'], function () {
             Route::get('', GetSubLocationListAction::class);

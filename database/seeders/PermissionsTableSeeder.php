@@ -50,6 +50,8 @@ class PermissionsTableSeeder extends Seeder
         [ 'name' => 'product.get-all'],
         [ 'name' => 'product.delete'],
         [ 'name' => 'product.edit'],
+        [ 'name' => 'product.withdraw'],
+        [ 'name' => 'product.return'],
 
         [ 'name' => 'subLocation.add'],
         [ 'name' => 'subLocation.get'],
