@@ -3,3 +3,6 @@ a test for Coders District "Kitchen Management Module This technical test focuse
 
 
 please note the user_id in StoreProductTransactionAction has to be auth('sanctum')->user()->id; instead of $data['user_id']=1; I've noticed it so i write it here not to push any commits after deadline
+
+
+###Note : final branch is products
